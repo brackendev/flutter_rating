@@ -7,10 +7,10 @@ typedef void RatingChangeCallback(double rating);
 class StarRating extends StatelessWidget {
   final int starCount;
   final double rating;
-  final RatingChangeCallback onRatingChanged;
-  final Color color;
-  final Color borderColor;
-  final double size;
+  final RatingChangeCallback? onRatingChanged;
+  final Color? color;
+  final Color? borderColor;
+  final double? size;
   final MainAxisAlignment mainAxisAlignment;
 
   StarRating({
@@ -51,7 +51,7 @@ class StarRating extends StatelessWidget {
       highlightColor: Colors.transparent,
       radius: (size ?? ratingStarSizeRelativeToScreen) / 2,
       onTap:
-          onRatingChanged == null ? null : () => onRatingChanged(index + 1.0),
+          onRatingChanged == null ? null : () => onRatingChanged!(index + 1.0),
       child: new Container(
         height: (size ?? ratingStarSizeRelativeToScreen) * 1.5,
         child: icon,
